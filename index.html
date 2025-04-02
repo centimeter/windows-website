@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ctraweek Website</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    
+    <div style="flex-direction: column; display: flex;">
+        <div class="icon">
+            <img src="img/open_folder.png" alt="Mechanical Portfolio">
+            <span>Mechanical Portfolio</span>
+        </div>
+        <div class="icon" id="art-portfolio">
+            <img src="img/Win95PaintLogo.webp" alt="Art & Writing Portfolio">
+            <span>Art Portfolio</span>
+        </div>
+        <div class="icon" onclick="window.open('https://www.linkedin.com/in/clairetraweek/', '_blank')">
+            <img src="img/network.png" alt="LinkedIn">
+            <span>LinkedIn</span>
+        </div>
+        <div class="icon" onclick="window.open('https://www.instagram.com/clairetraweek', '_blank')">
+            <img src="img/open_folder.png" alt="Insta">
+            <span>Instagram</span>
+        </div>
+    </div>
+    <div class="block win95-window" style="height:100px; width:250px">
+        <div class="title-bar">
+            <div class="title-bar-text">User Feedback</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize" class = "minimize"></button>
+                <button aria-label="Maximize" class = "maximize"></button>
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <div class="parent-container">   
+                <div style="display:flex; flex: 1; align-items: center; justify-content: center;">
+                    <img src = "img/fax.png" style="width: 100%; max-height: 100%;">
+                </div>
+                <div style="display:flex; flex: 3; align-items: center; justify-content: center; flex-direction: column;">
+                    <p style= "line-height: 1em;">A real quote:<br>
+                        <span style = "font-weight: normal; line-height: 1em;">"It's a nice start, but I don't get why they're moving. It's kind of hard to click on things when they keep getting covered up"</span>
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="block win95-window" style="height:150px;">
+        <div class="title-bar">
+            <div class="title-bar-text">About Me</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize" class = "minimize"></button>
+                <button aria-label="Maximize" class = "maximize"></button>
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <div class="parent-container">   
+                <div style="display:flex; flex: 3; align-items: center; justify-content: center; flex-direction: column;">
+                    <p style= "line-height: 1em;">Hi! I'm Claire <br>
+                        <span style = "font-weight: normal; line-height: 1em;">This is my personal website.</span>
+                    </p>
+                </div>
+                <div style="display:flex; flex: 2; align-items: center; justify-content: center;">
+                    <img src = "img/claire.png" style="width: 100%; max-height: 100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="block win95-window" style="height:100px; width:250px">
+        <div class="title-bar">
+            <div class="title-bar-text">How to use this site</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize" class = "minimize"></button>
+                <button aria-label="Maximize" class = "maximize"></button>
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <div class="parent-container">   
+                <div style="display:flex; flex: 1; align-items: center; justify-content: center;">
+                    <img src = "img/warning.png" style="width: 40%; max-height: 100%;">
+                </div>
+                <div style="display:flex; flex: 3; align-items: center; justify-content: center; flex-direction: column;">
+                    <p style= "line-height: 1em;">Navigate with the desktop shortcuts. <br>
+                        <span style = "font-weight: normal; line-height: 1em;">Lots of things don't work yet but WIP</span>
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="window explorer-window" id="art-portfolio-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Art Portfolio</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize" class = "minimize"></button>
+                <button aria-label="Maximize" class = "maximize"></button>
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body file-window">
+            <div class="menu-bar">
+              <ul>
+                <li><a href="#">File</a></li>
+                <li><a href="#">Edit</a></li>
+                <li><a href="#">View</a></li>
+                <li><a href="#">Help</a></li>
+              </ul>
+            </div>
+            <div class="content">
+              <div class="file-tree file-list">
+                <div class="file-item"> one </div>
+                <div class="file-item" data-content="C-drive-list">
+                    <img src="img/hdd-icon.png" alt="Hard Drive">
+                    <span>Local Disk (C:)</span>
+                </div>
+              </div>
+              <div class="file-list">
+                <div class="file-item" data-content="dragon.jpg">
+                    <img src="img/art/dragonSticker.jpg" alt="Hard Drive" loading="lazy">
+                    <span>dragonSticker.jpg</span>
+                </div>
+                <div class="file-item" data-content="floating.png">
+                    <img src="img/art/floating.png" alt="Hard Drive" loading="lazy">
+                    <span>floating.png</span>
+                </div>
+                <div class="file-item" data-content="monk.jpg">
+                    <img src="img/art/monk.jpg" alt="Hard Drive" loading="lazy">
+                    <span>monk.jpg</span>
+                </div>
+                <div class="file-item" data-content="opposites.jpg">
+                    <img src="img/art/opposites.jpg" alt="Hard Drive" loading="lazy">
+                    <span>opposites.jpg</span>
+                </div>
+                <div class="file-item" data-content="statue1.jpg">
+                    <img src="img/art/statue1.jpg" alt="Hard Drive" loading="lazy">
+                    <span>statue1.jpg</span>
+                </div>
+                <div class="file-item" data-content="statue2.jpg">
+                    <img src="img/art/statue2.jpg" alt="Hard Drive" loading="lazy">
+                    <span>statue2.jpg</span>
+                </div>
+                <div class="file-item" data-content="cake.jpg">
+                    <img src="img/art/cake.jpg" alt="Hard Drive" loading="lazy">
+                    <span>cake.jpg</span>
+                </div>
+                <div class="file-item" data-content="mask.jpg">
+                    <img src="img/art/mask.jpg" alt="Hard Drive" loading="lazy">
+                    <span>mask.jpg</span>
+                </div>
+                <div class="file-item" data-content="eyes.jpg">
+                    <img src="img/art/eyes.jpg" alt="Hard Drive" loading="lazy">
+                    <span>eyes.jpg</span>
+                </div>
+                <div class="file-item" data-content="cloak.jpg">
+                    <img src="img/art/cloak.jpg" alt="Hard Drive" loading="lazy">
+                    <span>cloak.jpg</span>
+                </div>
+                <div class="file-item" data-content="reflectivecoat.jpg">
+                    <img src="img/art/reflectivecoat.jpg" alt="Hard Drive" loading="lazy">
+                    <span>reflectivecoat.jpg</span>
+                </div>
+              </div>
+              </div>
+              <div id="status-left-1" class="status-bar">
+                <div class="status-left">3 object(s)</div>
+                <div class="status-right">57.3 MB</div>
+              </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="window content-window" id="dragon.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Dragon Sticker</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/art/dragonSticker.jpg" alt="image of dragon sticker" loading="lazy">
+            <p class="portfolio-text">I made this sticker as a gift for friends. I still have a few around if anyone is interested!</p>
+            <img style="width:100%" src="img/art/dragonGreen.jpg" alt="image of dragon sticker" loading="lazy">
+        </div>
+    </div>
+
+    <div class="window content-window" id="floating.png-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Floating</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/art/floating.png" alt="image of canvas" loading="lazy">
+            <p class="portfolio-text">I started this. Maybe one day I'll finish it.</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="monk.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Floating</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/art/monk.jpg" alt="image of canvas" loading="lazy">
+            <p class="portfolio-text">a silly little sketch but I liked this one in particular</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="opposites.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Floating</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/art/opposites.jpg" alt="image of canvas" loading="lazy">
+            <p class="portfolio-text">I spent a lot of time on this. The cuts and anatomy came out well.</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="statue1.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Floating</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/art/statue1.jpg" alt="image of canvas" loading="lazy">
+            <p class="portfolio-text">I made this for a class in 2018</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="statue2.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Floating</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/art/statue2.jpg" alt="image of canvas" loading="lazy">
+            <p class="portfolio-text">I drew this for a class in 2018</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="mask.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Mask</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/art/mask.jpg" alt="image of canvas" loading="lazy">
+            <p class="portfolio-text">I made this for a masquerade. It functioned quite well!</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="eyes.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Eyes</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/art/eyes.jpg" alt="image of canvas" loading="lazy">
+            <p class="portfolio-text">Matches my custom eyeball shirt, made with leftover parts from the antler mask.</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="cake.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Cake</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/art/cake.jpg" alt="image of canvas" loading="lazy">
+            <p class="portfolio-text">Sometimes cakes are made</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="cloak.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Cloak</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/art/cloak.jpg" alt="image of canvas" loading="lazy">
+            <p class="portfolio-text">I sewed this</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="reflectivecoat.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Reflective Coat</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style = "width:100%" src="img/art/reflectivecoat.jpg" alt="image of canvas">
+            <p class="portfolio-text">Sometimes cakes are made</p>
+        </div>
+    </div>
+    
+    <div id="taskbar">
+        <button id="start-button">
+            <img src="img/windows_move.png" alt="Windows logo" style="height:120%">
+            Start
+        </button>
+        <div id="taskbar-programs"></div>
+        <div id="system-tray">
+            <span id="clock"></span>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

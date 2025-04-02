@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Creative Personal Website</title>
+    <style>
+        body {
+            background-color: #008080;
+            color: #FFFFFF;
+            overflow: hidden;
+            margin: 0;
+            padding-bottom: 28px; /* Height of the taskbar */
+        }
+        .block {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .win95-window {
+            background: #c0c0c0;
+            border: 1px solid;
+            border-top-color: #dfdfdf;
+            border-left-color: #dfdfdf;
+            border-right-color: #000;
+            border-bottom-color: #000;
+            box-shadow: 1px 1px 0 0 #dfdfdf inset, -1px -1px 0 0 #808080 inset;
+            font-family: 'MS Sans Serif', sans-serif;
+            font-size: 11px;
+            color: #000;
+        }
+
+        .window {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 300px;
+            background: #c0c0c0;
+            border: 1px solid;
+            border-top-color: #dfdfdf;
+            border-left-color: #dfdfdf;
+            border-right-color: #000;
+            border-bottom-color: #000;
+            box-shadow: 1px 1px 0 0 #000;
+            box-shadow: 1px 1px 0 0 #dfdfdf inset, -1px -1px 0 0 #808080 inset;
+            font-family: 'MS Sans Serif', sans-serif;
+            font-size: 11px;
+            display: none;
+        }
+
+
+        .title-bar {
+            background: linear-gradient(90deg, #000080, #1084d0);
+            padding: 3px 2px 3px 3px;
+            position: absolute;
+            width: 95%;
+            top: 0px;
+        }
+
+        .title-bar-text {
+            font-weight: bold;
+            color: white;
+            letter-spacing: 0.5px;
+            margin-right: 24px;
+        }
+
+        .title-bar-controls {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+        }
+
+        .title-bar-controls button {
+            width: 16px;
+            height: 14px;
+            border: none;
+            background: #c0c0c0;
+            margin-left: 2px;
+            position: relative;
+            box-shadow: 1px 1px 0 0 #dfdfdf inset, -1px -1px 0 0 #808080 inset;
+        }
+
+        .title-bar-controls button:active {
+            box-shadow: -1px -1px 0 0 #dfdfdf inset, 1px 1px 0 0 #808080 inset;
+        }
+
+        .title-bar-controls button:before {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 4px;
+            width: 6px;
+            height: 2px;
+            background: #000;
+        }
+
+        .window-body {
+            margin: 8px;
+            margin-top: 20px;
+        }
+
+        .file-window{
+            height: 95%;
+        }
+
+        #taskbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 28px;
+            background-color: #c0c0c0;
+            border-top: 1px solid #dfdfdf;
+            display: flex;
+            align-items: center;
+            padding: 0 2px;
+            font-family: 'MS Sans Serif', sans-serif;
+            font-size: 11px;
+            z-index: 9999;
+        }
+
+        #start-button {
+            display: flex;
+            align-items: center;
+            height: 22px;
+            padding: 0 5px;
+            margin-right: 6px;
+            background-color: #c0c0c0;
+            border: 1px solid;
+            border-top-color: #dfdfdf;
+            border-left-color: #dfdfdf;
+            border-right-color: #000;
+            border-bottom-color: #000;
+            font-weight: bold;
+        }
+
+        #start-button:active {
+            border-top-color: #000;
+            border-left-color: #000;
+            border-right-color: #dfdfdf;
+            border-bottom-color: #dfdfdf;
+        }
+
+        #start-button img {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+        }
+
+        #taskbar-programs {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        #system-tray {
+            border-left: 1px solid #808080;
+            padding-left: 8px;
+            margin-left: 8px;
+        }
+
+        #clock {
+            background-color: #c0c0c0;
+            border: 1px inset #fff;
+            padding: 2px 4px;
+        }
+
+        .parent-container {
+            display: flex;
+            width: 100%;
+            max-width: 1000px; /* Adjust as needed */
+            margin: 0 auto; /* Centers the container horizontally */
+        }
+
+        @media (max-width: 250px) {
+            .parent-container {
+                flex-direction: column;
+            }
+        }
+
+        .desktop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 28px; /* Adjust based on your taskbar height */
+            padding: 10px;
+            overflow: auto;
+        }
+
+        .icon {
+            width: 64px;
+            margin: 10px;
+            text-align: center;
+            float: left;
+            cursor: pointer;
+        }
+
+        .icon img {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 5px;
+        }
+
+        .icon span {
+            display: block;
+            font-family: 'MS Sans Serif', sans-serif;
+            font-size: 11px;
+            color: #fff;
+            text-shadow: 1px 1px #000;
+            word-wrap: break-word;
+        }
+
+        .icon:hover span {
+            background-color: #000080;
+        }
+
+        .icon:active span {
+            background-color: #000080;
+            color: #fff;
+        }
+
+        .file-browser {
+            background: white;
+            border: 1px inset #dfdfdf;
+            padding: 5px;
+            height: 200px;
+            overflow-y: auto;
+        }
+
+        .file-item {
+            display: flex;
+            align-items: center;
+            padding: 2px;
+            cursor: pointer;
+        }
+
+        .file-item:hover {
+            background-color: #000080;
+            color: white;
+        }
+
+        .file-item img {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+
+        .explorer-window {
+            width: 640px;
+            height: 480px;
+            background: #c0c0c0;
+            border: 1px solid;
+            border-top-color: #dfdfdf;
+            border-left-color: #dfdfdf;
+            border-right-color: #000;
+            border-bottom-color: #000;
+            box-shadow: 1px 1px 0 0 #000;
+            font-family: 'MS Sans Serif', sans-serif;
+            font-size: 11px;
+        }
+
+        .title-bar-controls button {
+        width: 16px;
+        height: 14px;
+        border: none;
+        background: #c0c0c0;
+        margin-left: 2px;
+        position: relative;
+        box-shadow: 1px 1px 0 0 #dfdfdf inset, -1px -1px 0 0 #808080 inset;
+        }
+
+        .title-bar-controls button:active {
+        box-shadow: -1px -1px 0 0 #dfdfdf inset, 1px 1px 0 0 #808080 inset;
+        padding: 1px 0 0 1px;
+        }
+
+        .title-bar-controls button::before {
+        content: '';
+        position: absolute;
+        left: 4px;
+        top: 4px;
+        width: 6px;
+        height: 2px;
+        background: #000;
+        }
+
+        /* Minimize button */
+        .title-bar-controls .minimize::before {
+        top: 6px;
+        }
+
+        /* Maximize button */
+        .title-bar-controls .maximize::before {
+        width: 8px;
+        height: 7px;
+        border: 1px solid #000;
+        background: none;
+        top: 2px;
+        left: 3px;
+        }
+
+        /* Close button */
+        .title-bar-controls .close::before,
+        .title-bar-controls .close::after {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 2px;
+        background: #000;
+        top: 5px;
+        left: 3px;
+        }
+
+        .title-bar-controls .close::before {
+        transform: rotate(45deg);
+        }
+
+        .title-bar-controls .close::after {
+        transform: rotate(-45deg);
+        }
+        .menu-bar {
+        background: #c0c0c0;
+        border-bottom: 1px solid #808080;
+        }
+
+        .menu-bar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 2px;
+        display: flex;
+        }
+
+        .menu-bar li {
+        margin-right: 10px;
+        }
+
+        .menu-bar a {
+        color: #000;
+        text-decoration: none;
+        }
+
+        .toolbar {
+        padding: 2px;
+        border-bottom: 1px solid #808080;
+        }
+
+        .toolbar button {
+        background: #c0c0c0;
+        border: 1px solid;
+        border-top-color: #dfdfdf;
+        border-left-color: #dfdfdf;
+        border-right-color: #000;
+        border-bottom-color: #000;
+        padding: 2px 4px;
+        margin-right: 2px;
+        }
+
+        .toolbar img {
+        vertical-align: middle;
+        margin-right: 2px;
+        }
+
+        .address-bar {
+        padding: 2px;
+        border-bottom: 1px solid #808080;
+        display: flex;
+        align-items: center;
+        }
+
+        .address-bar span {
+        margin-right: 5px;
+        }
+
+        .address-bar input {
+        flex-grow: 1;
+        border: 1px inset #fff;
+        background: #fff;
+        padding: 1px;
+        }
+
+        .content {
+        display: flex;
+        flex-grow: 1;
+        border: 1px inset #fff;
+        background: #fff;
+        margin: 2px;
+        height: calc(100% - 50px);
+        }
+
+        .folder-tree {
+        width: 25%;
+        border-right: 1px solid #808080;
+        overflow: auto;
+        }
+
+        .subfolder {
+            position: relative;
+        }
+
+        .folder, .file {
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            padding-left: 20px;
+            line-height: 20px;
+        }
+
+        .file-list {
+        width: 75%;
+        overflow: auto;
+        color: black;
+        }
+
+        .file-tree {
+            width: 200px;
+            background-color: #fff;
+            border-right: 1px solid #808080;
+            overflow-y: auto;
+            padding: 5px;
+        }
+
+
+        .status-bar {
+        display: flex;
+        justify-content: space-between;
+        padding: 2px;
+        border-top: 1px solid #808080;
+        }
+
+        .status-left, .status-right {
+        border: 1px inset #fff;
+        padding: 1px 4px;
+        }
+
+        .portfolio-text{
+            color: black
+        }
+
+    </style>
+</head>
+<body>
+    <div style="flex-direction: column; display: flex;">
+        <div class="icon">
+            <img src="img/open_folder.png" alt="Mechanical Portfolio">
+            <span>Mechanical Portfolio</span>
+        </div>
+        <div class="icon" id="art-portfolio">
+            <img src="img/Win95PaintLogo.webp" alt="Art & Writing Portfolio">
+            <span>Art Portfolio</span>
+        </div>
+        <div class="icon">
+            <img src="img/network.png" alt="LinkedIn">
+            <span>LinkedIn</span>
+        </div>
+        <div class="icon">
+            <img src="my-documents.png" alt="Insta">
+            <span>My Documents</span>
+        </div>
+    </div>
+    <div class="block win95-window" style="height:100px; width:250px">
+        <div class="title-bar">
+            <div class="title-bar-text">User Feedback</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize" class = "minimize"></button>
+                <button aria-label="Maximize" class = "maximize"></button>
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <div class="parent-container">   
+                <div style="display:flex; flex: 1; align-items: center; justify-content: center;">
+                    <img src = "img/fax.png" style="width: 100%; max-height: 100%;">
+                </div>
+                <div style="display:flex; flex: 3; align-items: center; justify-content: center; flex-direction: column;">
+                    <p style= "line-height: 1em;">A real quote:<br>
+                        <span style = "font-weight: normal; line-height: 1em;">"It's a nice start, but I don't get why they're moving. It's kind of hard to click on things when they keep getting covered up"</span>
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="block win95-window" style="height:150px;">
+        <div class="title-bar">
+            <div class="title-bar-text">About Me</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize" class = "minimize"></button>
+                <button aria-label="Maximize" class = "maximize"></button>
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <div class="parent-container">   
+                <div style="display:flex; flex: 3; align-items: center; justify-content: center; flex-direction: column;">
+                    <p style= "line-height: 1em;">Hi! I'm Claire <br>
+                        <span style = "font-weight: normal; line-height: 1em;">This is my personal website.</span>
+                    </p>
+                </div>
+                <div style="display:flex; flex: 2; align-items: center; justify-content: center;">
+                    <img src = "img/claire.png" style="width: 100%; max-height: 100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="block win95-window" style="height:100px; width:250px">
+        <div class="title-bar">
+            <div class="title-bar-text">How to use this site</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize" class = "minimize"></button>
+                <button aria-label="Maximize" class = "maximize"></button>
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <div class="parent-container">   
+                <div style="display:flex; flex: 1; align-items: center; justify-content: center;">
+                    <img src = "img/warning.png" style="width: 40%; max-height: 100%;">
+                </div>
+                <div style="display:flex; flex: 3; align-items: center; justify-content: center; flex-direction: column;">
+                    <p style= "line-height: 1em;">Navigate with the desktop shortcuts. <br>
+                        <span style = "font-weight: normal; line-height: 1em;">Lots of things don't work yet but WIP</span>
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="window explorer-window" id="art-portfolio-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Art Portfolio</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize" class = "minimize"></button>
+                <button aria-label="Maximize" class = "maximize"></button>
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body file-window">
+            <div class="menu-bar">
+              <ul>
+                <li><a href="#">File</a></li>
+                <li><a href="#">Edit</a></li>
+                <li><a href="#">View</a></li>
+                <li><a href="#">Help</a></li>
+              </ul>
+            </div>
+            <div class="content">
+              <div class="file-tree file-list">
+                <div class="file-item"> one </div>
+                <div class="file-item" data-content="C-drive-list">
+                    <img src="hdd-icon.png" alt="Hard Drive">
+                    <span>Local Disk (C:)</span>
+                </div>
+              </div>
+              <div class="file-list">
+                <div class="file-item" data-content="dragon.jpg">
+                    <img src="img/art/dragonSticker.jpg" alt="Hard Drive">
+                    <span>dragonSticker.jpg</span>
+                </div>
+                <div class="file-item" data-content="floating.png">
+                    <img src="img/art/floating.png" alt="Hard Drive">
+                    <span>floating.png</span>
+                </div>
+                <div class="file-item" data-content="monk.jpg">
+                    <img src="img/art/monk.jpg" alt="Hard Drive">
+                    <span>monk.jpg</span>
+                </div>
+                <div class="file-item" data-content="opposites.jpg">
+                    <img src="img/art/opposites.jpg" alt="Hard Drive">
+                    <span>opposites.jpg</span>
+                </div>
+                <div class="file-item" data-content="statue1.jpg">
+                    <img src="img/art/statue1.jpg" alt="Hard Drive">
+                    <span>statue1.jpg</span>
+                </div>
+                <div class="file-item" data-content="statue2.jpg">
+                    <img src="img/art/statue2.jpg" alt="Hard Drive">
+                    <span>statue2.jpg</span>
+                </div>
+                <div class="file-item" data-content="cake.jpg">
+                    <img src="img/art/cake.jpg" alt="Hard Drive">
+                    <span>cake.jpg</span>
+                </div>
+                <div class="file-item" data-content="mask.jpg">
+                    <img src="img/art/mask.jpg" alt="Hard Drive">
+                    <span>mask.jpg</span>
+                </div>
+                <div class="file-item" data-content="eyes.jpg">
+                    <img src="img/art/eyes.jpg" alt="Hard Drive">
+                    <span>eyes.jpg</span>
+                </div>
+                <div class="file-item" data-content="cloak.jpg">
+                    <img src="img/art/cloak.jpg" alt="Hard Drive">
+                    <span>cloak.jpg</span>
+                </div>
+                <div class="file-item" data-content="reflectivecoat.jpg">
+                    <img src="img/art/reflectivecoat.jpg" alt="Hard Drive">
+                    <span>reflectivecoat.jpg</span>
+                </div>
+              </div>
+            </div>
+            <div class="status-bar">
+              <div class="status-left">3 object(s)</div>
+              <div class="status-right">57.3 MB</div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <div class="window content-window" id="dragon.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Dragon Sticker</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style = "width:100%" src="img/art/dragonSticker.jpg" alt="image of dragon sticker">
+            <p class="portfolio-text">I made this sticker as a gift for friends. I still have a few around if anyone is interested!</p>
+            <img style = "width:100%" src="img/art/dragonGreen.jpg" alt="image of dragon sticker">
+        </div>
+    </div>
+
+    <div class="window content-window" id="floating.png-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Floating</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style = "width:100%" src="img/art/floating.png" alt="image of canvas">
+            <p class="portfolio-text">I started this. Maybe one day I'll finish it.</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="monk.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Floating</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style = "width:100%" src="img/art/monk.jpg" alt="image of canvas">
+            <p class="portfolio-text">a silly little sketch but I liked this one in particular</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="opposites.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Floating</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style = "width:100%" src="img/art/opposites.jpg" alt="image of canvas">
+            <p class="portfolio-text">I spent a lot of time on this. The cuts and anatomy came out well.</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="statue1.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Floating</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style = "width:100%" src="img/art/statue1.jpg" alt="image of canvas">
+            <p class="portfolio-text">I made this for a class in 2018</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="statue2.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Floating</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style = "width:100%" src="img/art/statue2.jpg" alt="image of canvas">
+            <p class="portfolio-text">I drew this for a class in 2018</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="mask.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Mask</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style = "width:100%" src="img/art/mask.jpg" alt="image of canvas">
+            <p class="portfolio-text">I made this for a masquerade. It functioned quite well!</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="eyes.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Eyes</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style = "width:100%" src="img/art/eyes.jpg" alt="image of canvas">
+            <p class="portfolio-text">Matches my custom eyeball shirt, made with leftover parts from the antler mask.</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="cake.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Cake</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style = "width:100%" src="img/art/cake.jpg" alt="image of canvas">
+            <p class="portfolio-text">Sometimes cakes are made</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="cloak.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Cloak</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style = "width:100%" src="img/art/cloak.jpg" alt="image of canvas">
+            <p class="portfolio-text">I sewed this</p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="reflectivecoat.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Reflective Coat</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style = "width:100%" src="img/art/reflectivecoat.jpg" alt="image of canvas">
+            <p class="portfolio-text">Sometimes cakes are made</p>
+        </div>
+    </div>
+    
+    <div id="taskbar">
+        <button id="start-button">
+            <img src="img/windows_move.webp" alt="Windows logo" style="height:120%">
+            Start
+        </button>
+        <div id="taskbar-programs"></div>
+        <div id="system-tray">
+            <span id="clock"></span>
+        </div>
+    </div>
+
+    <script>
+        // Get all the blocks
+        const blocks = document.querySelectorAll('.block');
+
+        // Set up animation parameters
+        const fps = 60;
+        const interval = 1000 / fps;
+
+        // Initialize block properties
+        blocks.forEach(block => {
+            block.speedX = (Math.random() - 0.5) * 2; 
+            block.speedY = (Math.random() - 0.5) * 2;
+            block.posX = Math.random() * (window.innerWidth - block.offsetWidth);
+            block.posY = Math.random() * (window.innerHeight - block.offsetHeight);
+        });
+
+        // Function to update block positions
+        function updateBlocks() {
+            blocks.forEach(block => moveBlock(block));
+        }
+
+        function checkCollision(block1, block2) {
+            const left1 = block1.posX;
+            const right1 = block1.posX + block1.offsetWidth;
+            const top1 = block1.posY;
+            const bottom1 = block1.posY + block1.offsetHeight;
+
+            const left2 = block2.posX;
+            const right2 = block2.posX + block2.offsetWidth;
+            const top2 = block2.posY;
+            const bottom2 = block2.posY + block2.offsetHeight;
+
+            return !(left1 > right2 || right1 < left2 || top1 > bottom2 || bottom1 < top2);
+        }
+
+        const MIN_SPEED = 0.1;
+
+        function applyMinimumSpeed(block) {
+            const speed = Math.sqrt(block.speedX * block.speedX + block.speedY * block.speedY);
+            if (speed > 0 && speed < MIN_SPEED) {
+                const factor = MIN_SPEED / speed;
+                block.speedX *= factor;
+                block.speedY *= factor;
+            }
+        }
+
+        function separateBlocks(block1, block2) {
+            const overlapX = (block1.offsetWidth + block2.offsetWidth) / 2 - Math.abs(block1.posX - block2.posX);
+            const overlapY = (block1.offsetHeight + block2.offsetHeight) / 2 - Math.abs(block1.posY - block2.posY);
+
+            if (overlapX > 0 && overlapY > 0) {
+                if (overlapX < overlapY) {
+                    if (block1.posX < block2.posX) {
+                        block1.posX -= overlapX / 2;
+                        block2.posX += overlapX / 2;
+                    } else {
+                        block1.posX += overlapX / 2;
+                        block2.posX -= overlapX / 2;
+                    }
+                } else {
+                    if (block1.posY < block2.posY) {
+                        block1.posY -= overlapY / 2;
+                        block2.posY += overlapY / 2;
+                    } else {
+                        block1.posY += overlapY / 2;
+                        block2.posY -= overlapY / 2;
+                    }
+                }
+            }
+        }
+
+        function moveBlock(block) {
+            // Update position
+            const newPosX = block.posX + block.speedX;
+            const newPosY = block.posY + block.speedY;
+
+
+            // Check for collision with other blocks
+            let collided = false;
+            // blocks.forEach(otherBlock => {
+            //     if (block !== otherBlock) {
+            //         if (checkCollision(
+            //             {posX: newPosX, posY: newPosY, offsetWidth: block.offsetWidth, offsetHeight: block.offsetHeight},
+            //             otherBlock
+            //         )) {
+            //             collided = true;
+            //             // Calculate collision response
+            //             const dx = (block.posX + block.offsetWidth / 2) - (otherBlock.posX + otherBlock.offsetWidth / 2);
+            //             const dy = (block.posY + block.offsetHeight / 2) - (otherBlock.posY + otherBlock.offsetHeight / 2);
+            //             const angle = Math.atan2(dy, dx);
+            //             const speed1 = Math.sqrt(block.speedX * block.speedX + block.speedY * block.speedY);
+            //             const speed2 = Math.sqrt(otherBlock.speedX * otherBlock.speedX + otherBlock.speedY * otherBlock.speedY);
+            //             const direction1 = Math.atan2(block.speedY, block.speedX);
+            //             const direction2 = Math.atan2(otherBlock.speedY, otherBlock.speedX);
+            //             const newXSpeed1 = speed1 * Math.cos(direction1 - angle);
+            //             const newYSpeed1 = speed1 * Math.sin(direction1 - angle);
+            //             const newXSpeed2 = speed2 * Math.cos(direction2 - angle);
+            //             const newYSpeed2 = speed2 * Math.sin(direction2 - angle);
+            //             block.speedX = newXSpeed2 * Math.cos(angle) + newYSpeed1 * Math.cos(angle + Math.PI / 2);
+            //             block.speedY = newXSpeed2 * Math.sin(angle) + newYSpeed1 * Math.sin(angle + Math.PI / 2);
+            //             otherBlock.speedX = newXSpeed1 * Math.cos(angle) + newYSpeed2 * Math.cos(angle + Math.PI / 2);
+            //             otherBlock.speedY = newXSpeed1 * Math.sin(angle) + newYSpeed2 * Math.sin(angle + Math.PI / 2);
+            //             applyMinimumSpeed(block)
+            //             applyMinimumSpeed(otherBlock)
+            //             separateBlocks(block, otherBlock)
+
+            //         }
+            //     }
+            // });
+
+            if (!collided) {
+                block.posX = newPosX;
+                block.posY = newPosY;
+            }
+
+            // Check for collision with walls
+            if (block.posX <= 0 || block.posX + block.offsetWidth >= window.innerWidth) {
+                block.speedX *= -1;  // Reverse horizontal direction
+            }
+            if (block.posY <= 0 || block.posY + block.offsetHeight >= window.innerHeight) {
+                block.speedY *= -1;  // Reverse vertical direction
+            }
+
+            // Apply new position
+            block.style.left = `${block.posX}px`;
+            block.style.top = `${block.posY}px`;
+        }
+
+        function animate() {
+            updateBlocks();
+            requestAnimationFrame(animate);
+        }
+
+        requestAnimationFrame(animate);
+
+        window.addEventListener('resize', () => {
+            blocks.forEach(block => {
+                block.posX = Math.min(block.posX, window.innerWidth - block.offsetWidth);
+                block.posY = Math.min(block.posY, window.innerHeight - block.offsetHeight);
+            });
+
+            // Update clock
+            function updateClock() {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+                document.getElementById('clock').textContent = timeString;
+            }
+
+            setInterval(updateClock, 1000);
+            updateClock();  // Initial call to display time immediately
+
+            // Add window buttons to taskbar
+            function addWindowButton(window) {
+                const button = document.createElement('button');
+                button.className = 'taskbar-button';
+                button.textContent = window.querySelector('.title-bar-text').textContent;
+                button.style.cssText = `
+                    height: 22px;
+                    margin-right: 3px;
+                    padding: 2px 5px;
+                    background-color: #c0c0c0;
+                    border: 1px solid;
+                    border-top-color: #dfdfdf;
+                    border-left-color: #dfdfdf;
+                    border-right-color: #000;
+                    border-bottom-color: #000;
+                    text-align: left;
+                    max-width: 150px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                `;
+
+                button.addEventListener('click', () => {
+                    window.style.display = window.style.display === 'none' ? 'block' : 'none';
+                });
+
+                document.getElementById('taskbar-programs').appendChild(button);
+            }
+
+            // Start button functionality
+            document.getElementById('start-button').addEventListener('click', () => {
+                console.log('Start menu clicked!');
+                // Here you could implement a more complex start menu if desired
+            });
+        });
+
+        document.querySelectorAll('.icon').forEach(icon => {
+            icon.addEventListener('click', function() {
+                console.log(`Opening ${this.querySelector('span').textContent}`);
+                const windowId = this.getAttribute('id') + '-window';
+                console.log(windowId)
+                const window = document.getElementById(windowId);
+                
+                if (window) {
+                    if (activeWindow) {
+                        activeWindow.style.display = 'none';
+                    }
+                    window.style.display = 'block';
+                    activeWindow = window;
+                    bringToFront(window);
+                }
+                });
+        });
+        let activeWindow = null;
+
+        document.querySelectorAll('.window .title-bar-controls button[aria-label="Close"]').forEach(button => {
+            button.addEventListener('click', function() {
+                this.closest('.window').style.display = 'none';
+                activeWindow = null;
+            });
+        });
+
+        function bringToFront(window) {
+            const windows = document.querySelectorAll('.window');
+            let maxZIndex = 0;
+            windows.forEach(w => {
+                const zIndex = parseInt(w.style.zIndex || 0);
+                if (zIndex > maxZIndex) maxZIndex = zIndex;
+            });
+            window.style.zIndex = maxZIndex + 1;
+        }
+
+        // Make windows draggable
+        document.querySelectorAll('.window').forEach(makeWindowDraggable);
+
+        function makeWindowDraggable(window) {
+            let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            window.querySelector('.title-bar').onmousedown = dragMouseDown;
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                document.onmousemove = elementDrag;
+                bringToFront(window);
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                window.style.top = (window.offsetTop - pos2) + "px";
+                window.style.left = (window.offsetLeft - pos1) + "px";
+            }
+
+            function closeDragElement() {
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
+        document.querySelectorAll('.file-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const contentId = this.getAttribute('data-content');
+                const contentWindow = document.getElementById(contentId + '-window');
+                
+                if (contentWindow) {
+                    contentWindow.style.display = 'block';
+                    activeWindow = contentWindow;
+                    bringToFront(contentWindow);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
