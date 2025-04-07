@@ -10,7 +10,7 @@
 <body>
     
     <div style="flex-direction: column; display: flex;">
-        <div class="icon">
+        <div class="icon" id = "mechanical-portfolio">
             <img src="img/open_folder.png" alt="Mechanical Portfolio">
             <span>Mechanical Portfolio</span>
         </div>
@@ -125,6 +125,18 @@
                 </div>
               </div>
               <div class="file-list">
+                <div class="file-item" data-content="artPortfolioPage1.png">
+                    <img src="img/art/art_portfolio_1.png" alt="Hard Drive" loading="lazy">
+                    <span>PortfolioPg_1.png</span>
+                </div>
+                <div class="file-item" data-content="artPortfolioPage2.png">
+                    <img src="img/art/art_portfolio_2.png" alt="Hard Drive" loading="lazy">
+                    <span>PortfolioPg_2.png</span>
+                </div>
+                <div class="file-item" data-content="artPortfolioPage3.png">
+                    <img src="img/art/art_portfolio_3.png" alt="Hard Drive" loading="lazy">
+                    <span>PortfolioPg_3.png</span>
+                </div>
                 <div class="file-item" data-content="dragon.jpg">
                     <img src="img/art/dragonSticker.jpg" alt="Hard Drive" loading="lazy">
                     <span>dragonSticker.jpg</span>
@@ -132,10 +144,6 @@
                 <div class="file-item" data-content="floating.png">
                     <img src="img/art/floating.png" alt="Hard Drive" loading="lazy">
                     <span>floating.png</span>
-                </div>
-                <div class="file-item" data-content="monk.jpg">
-                    <img src="img/art/monk.jpg" alt="Hard Drive" loading="lazy">
-                    <span>monk.jpg</span>
                 </div>
                 <div class="file-item" data-content="opposites.jpg">
                     <img src="img/art/opposites.jpg" alt="Hard Drive" loading="lazy">
@@ -178,7 +186,226 @@
             </div>
         </div>
     </div>
+
+    <div class="window explorer-window" id="mechanical-portfolio-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Mechanical Portfolio</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize" class = "minimize"></button>
+                <button aria-label="Maximize" class = "maximize"></button>
+                <button aria-label="Close" class = "close"></button>
+            </div>
+        </div>
+        <div class="window-body file-window">
+            <div class="menu-bar">
+              <ul>
+                <li><a href="#">File</a></li>
+                <li><a href="#">Edit</a></li>
+                <li><a href="#">View</a></li>
+                <li><a href="#">Help</a></li>
+              </ul>
+            </div>
+            <div class="content">
+              <div class="file-tree file-list">
+                <div class="file-item" data-content="C-drive-list">
+                    <img src="img/hdd-icon.png" alt="Hard Drive">
+                    <span>Local Disk (C:)</span>
+                </div>
+                <div class="file-item" data-content="C-drive-list">
+                    <img src="img/hdd-icon.png" alt="Hard Drive">
+                    <span>UNKNOWN (D:)</span>
+                </div>
+              </div>
+              <div class="file-list">
+                <div class="file-item" data-content="amira.webp">
+                    <img src="img/mech/amiraTerra.webp" alt="Hard Drive" loading="lazy">
+                    <span>amira.webp</span>
+                </div>
+                <div class="file-item" data-content="continuumActuator.png">
+                    <img src="img/mech/continuum_actuator.JPG" alt="Hard Drive" loading="lazy">
+                    <span>continuumActuator.png</span>
+                </div>
+                <div class="file-item" data-content="TwistedStringActuator.jpg">
+                    <img src="img/mech/TSA.jpg" alt="Hard Drive" loading="lazy">
+                    <span>TwistedStringActuator.jpg</span>
+                </div>
+                <div class="file-item" data-content="phoneBooth.jpg">
+                    <img src="img/mech/phone.jpg" alt="Hard Drive" loading="lazy">
+                    <span>phoneBooth.jpg</span>
+                </div>
+                <div class="file-item" data-content="sitToStand.png">
+                    <img src="img/mech/sitToStand.png" alt="Hard Drive" loading="lazy">
+                    <span>sitToStand.png</span>
+                </div>
+                <div class="file-item" data-content="fpgaVr.jpg">
+                    <img src="img/mech/fpgaVR.jpg" alt="Hard Drive" loading="lazy">
+                    <span>fpgaVR.jpg</span>
+                </div>
+                <div class="file-item" data-content="baggageRamp.jpg">
+                    <img src="img/mech/upliftFinal.png" alt="Hard Drive" loading="lazy">
+                    <span>baggageRamp.jpg</span>
+                </div>
+              </div>
+              </div>
+              <div id="status-left-1" class="status-bar">
+                <div class="status-left">3 object(s)</div>
+                <div class="status-right">57.3 MB</div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="window content-window" id="artPortfolioPage1.png-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Art Portfolio Page 1</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/art/art_portfolio_1.png" alt="Art Portfolio Page 1" loading="lazy">
+        </div>
+    </div>
+
+    <div class="window content-window" id="artPortfolioPage2.png-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Art Portfolio Page 2</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/art/art_portfolio_2.png" alt="Art Portfolio Page 2" loading="lazy">
+        </div>
+    </div>
+
+    <div class="window content-window" id="artPortfolioPage3.png-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Art Portfolio Page 3</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/art/art_portfolio_3.png" alt="Art Portfolio Page 3" loading="lazy">
+        </div>
+    </div>
+
+    <div class="window content-window" id="baggageRamp.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Baggage Ramp</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/mech/upliftFinal.png" alt="Baggage Ramp" loading="lazy">
+            <p class="portfolio-text">This was a final ME capstone project for 2.009. We traveled to the WestJet HQ and met with Delta.
+                The project was a massive team effort and continued for several months after the class and demo. Photos are both from
+                the class itself.</p>
+            <img style="width:100%" src="img/mech/upliftProto.png" alt="Baggage Ramp Demo" loading="lazy">
+        </div>
+    </div>
+
+    <div class="window content-window" id="fpgaVr.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">fpgaVr</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/mech/fpagVrBoard.jpg" alt="FPGA VR Board" loading="lazy">
+            <p class="portfolio-text">This was for a class and actually won a department award. It was an fpga board 
+                that allowed you to navigate a little black and white world in VR. We used an SD card for memory and 
+                basically wrote a bunch of transformations that read different parts of the SD card directly to these screens,
+                which I wrote a driver for. 
+            </p>
+            <img style="width:100%" src="img/mech/fpgaVr.jpg" alt="FPGA VR in action" loading="lazy">
+            <img style="width:100%" src="img/mech/fpgaVrScreen.jpg" alt="FPGA VR screen bugs" loading="lazy">
+        </div>
+    </div>
+
+    <div class="window content-window" id="sitToStand.png-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Sit to Stand</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/mech/sitToStand.png" alt="Sit to Stand Device" loading="lazy">
+            <p class="portfolio-text">This is a small robot I constructed for a class, designed to investigate the mechanics of sit
+                to stand in populations with muscle weaknesses. We ran optimizations to find optimal sit to stand trajectories. I was
+                primarily responsible for hardware but did some of the controls work as well. </p>
+            <img style="width:100%" src="img/mech/sitToStandCost.png" alt="Sit to Stand Cost Optimization" loading="lazy">
+            <img style="width:100%" src="img/mech/sitToStandGlamour.png" alt="Sit to Stand Glamour Shot" loading="lazy">
+        </div>
+    </div>
+
+    <div class="window content-window" id="phoneBooth.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Phone Booth</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/mech/phone.jpg" alt="A mock phone booth" loading="lazy">
+            <p class="portfolio-text">Designed this mock phone booth for a group of local activists interested in increasing
+                civic engagement in their community. The booth is designed to be modular, lightweight, and can be assembled 
+                and disassembled quickly and on the spot. I will post updates if one is ever built physically. 
+            </p>
+        </div>
+    </div>
     
+    <div class="window content-window" id="TwistedStringActuator.jpg-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Twisted String Actuator</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/mech/TSA.jpg" alt="A twisted string actuator" loading="lazy">
+            <p class="portfolio-text">This is my current area of research--stay tuned for updates! </p>
+        </div>
+    </div>
+
+    <div class="window content-window" id="continuumActuator.png-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Continuum Actuator</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/mech/continuum_actuator.JPG" alt="Continuum Robot" loading="lazy">
+            <p class="portfolio-text">I did some work on continuum based robots at one point. The goal was to build devices that 
+                had the benefits of both rigid and soft exoskeletons. This device looked cool but never progressed beyond early 
+                prototypes.
+            </p>
+            <img style="width:100%" src="img/mech/continuum_hanging.jpg" alt="Continuum Prototypes" loading="lazy">
+
+        </div>
+    </div>
+
+    <div class="window content-window" id="amira.webp-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Amira Terra</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" class="close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img style="width:100%" src="img/mech/amiraTerra.webp " alt="image of Amira Terra cooling product" loading="lazy">
+            <p class="portfolio-text">During covid, some friends and I started building an in bed cooling device that can predict
+                and prevent hot flashes for menopausal women. This turned into a startup, and a product called the Amira Terra that 
+                is available today at amira.care. As a cofounder, I worked on hardware and some operations for the startup.
+            </p>
+        </div>
+    </div>
+
     <div class="window content-window" id="dragon.jpg-window">
         <div class="title-bar">
             <div class="title-bar-text">Dragon Sticker</div>
@@ -187,9 +414,8 @@
             </div>
         </div>
         <div class="window-body">
-            <img style="width:100%" src="img/art/dragonSticker.jpg" alt="image of dragon sticker" loading="lazy">
-            <p class="portfolio-text">I made this sticker as a gift for friends. I still have a few around if anyone is interested!</p>
-            <img style="width:100%" src="img/art/dragonGreen.jpg" alt="image of dragon sticker" loading="lazy">
+            <img style="width:100%" src="img/art/dragonSticker.jpg" alt="image of a dragon sticker" loading="lazy">
+            <p class="portfolio-text">I made this sticker for friends, and have a few left over if anyone wants one.</p>
         </div>
     </div>
 
@@ -293,7 +519,7 @@
         </div>
         <div class="window-body">
             <img style="width:100%" src="img/art/cake.jpg" alt="image of canvas" loading="lazy">
-            <p class="portfolio-text">Sometimes cakes are made</p>
+            <p class="portfolio-text"></p>
         </div>
     </div>
 
